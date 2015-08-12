@@ -199,7 +199,7 @@ namespace PaperTime
         public PaperTimeForm(IEnumerable<string> fileNames)
         {
             var contextMenu = new ContextMenu();
-            contextMenu.MenuItems.Add("Exit", (s, e) => { this.Close(); });
+            contextMenu.MenuItems.Add(PaperTime.Text.ContextMenuExit, (s, e) => { this.Close(); });
             notifyIcon = new NotifyIcon()
             {
                 Text = "Paper Time",

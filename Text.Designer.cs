@@ -61,6 +61,15 @@ namespace PaperTime {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        internal static string ContextMenuExit {
+            get {
+                return ResourceManager.GetString("ContextMenuExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Press any key to continue . . ..
         /// </summary>
         internal static string ContinuePrompt {
