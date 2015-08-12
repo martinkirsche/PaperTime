@@ -197,13 +197,11 @@ namespace PaperTime
         NotifyIcon notifyIcon;
 
         public PaperTimeForm(IEnumerable<string> fileNames)
-        {
-            var contextMenu = new ContextMenu();
-            contextMenu.MenuItems.Add(PaperTime.Text.ContextMenuExit, (s, e) => { this.Close(); });
+        {            
             notifyIcon = new NotifyIcon()
             {
                 Text = "Paper Time",
-                ContextMenu = contextMenu,
+                ContextMenu = new ContextMenu(),
                 Visible = true
             };
             using (Stream s = Assembly.GetExecutingAssembly().GetManifestResourceStream("PaperTime.Icon.ico"))
@@ -211,8 +209,16 @@ namespace PaperTime
                 notifyIcon.Icon = new System.Drawing.Icon(s);
             }
             notifyIcon.BalloonTipClicked += new EventHandler(BalloonTipClicked);
-            notifyIcon.DoubleClick +=
-                new EventHandler((s, e) => LaunchEditor(Path.GetFullPath(fileNames.Last())));
+            var launchEditorHandler = new EventHandler((s, e) => LaunchEditor(Path.GetFullPath(fileNames.Last())));
+            notifyIcon.DoubleClick += launchEditorHandler;
+            var launchEditorItem = new MenuItem()
+            {
+                DefaultItem = true,
+                Text = PaperTime.Text.ContextMenuLaunchEditor,
+            };
+            launchEditorItem.Click += launchEditorHandler;
+            notifyIcon.ContextMenu.MenuItems.Add(launchEditorItem);
+            notifyIcon.ContextMenu.MenuItems.Add(PaperTime.Text.ContextMenuExit, (s, e) => { this.Close(); });
             LoadFiles(fileNames);
         }
 

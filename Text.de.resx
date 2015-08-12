@@ -120,6 +120,9 @@
   <data name="ContextMenuExit" xml:space="preserve">
     <value>Beenden</value>
   </data>
+  <data name="ContextMenuLaunchEditor" xml:space="preserve">
+    <value>Editor Starten</value>
+  </data>
   <data name="ContinuePrompt" xml:space="preserve">
     <value>Drücken Sie eine beliebige Taste . . .</value>
   </data>

@@ -70,6 +70,15 @@ namespace PaperTime {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Launch Editor.
+        /// </summary>
+        internal static string ContextMenuLaunchEditor {
+            get {
+                return ResourceManager.GetString("ContextMenuLaunchEditor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Press any key to continue . . ..
         /// </summary>
         internal static string ContinuePrompt {
