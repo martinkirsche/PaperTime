@@ -79,6 +79,15 @@ namespace PaperTime {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open Report.
+        /// </summary>
+        internal static string ContextMenuOpenReport {
+            get {
+                return ResourceManager.GetString("ContextMenuOpenReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Press any key to continue . . ..
         /// </summary>
         internal static string ContinuePrompt {

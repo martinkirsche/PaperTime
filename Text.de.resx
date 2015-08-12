@@ -123,6 +123,9 @@
   <data name="ContextMenuLaunchEditor" xml:space="preserve">
     <value>Editor Starten</value>
   </data>
+  <data name="ContextMenuOpenReport" xml:space="preserve">
+    <value>Bericht Öffnen</value>
+  </data>
   <data name="ContinuePrompt" xml:space="preserve">
     <value>Drücken Sie eine beliebige Taste . . .</value>
   </data>

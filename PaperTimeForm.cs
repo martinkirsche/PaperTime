@@ -208,7 +208,7 @@ namespace PaperTime
             {
                 notifyIcon.Icon = new System.Drawing.Icon(s);
             }
-            notifyIcon.BalloonTipClicked += new EventHandler(BalloonTipClicked);
+            notifyIcon.BalloonTipClicked += new EventHandler(OpenReportClick);
             var launchEditorHandler = new EventHandler((s, e) => LaunchEditor(Path.GetFullPath(fileNames.Last())));
             notifyIcon.DoubleClick += launchEditorHandler;
             var launchEditorItem = new MenuItem()
@@ -218,11 +218,13 @@ namespace PaperTime
             };
             launchEditorItem.Click += launchEditorHandler;
             notifyIcon.ContextMenu.MenuItems.Add(launchEditorItem);
+            notifyIcon.ContextMenu.MenuItems.Add(PaperTime.Text.ContextMenuOpenReport, OpenReportClick);
+            notifyIcon.ContextMenu.MenuItems.Add("-");
             notifyIcon.ContextMenu.MenuItems.Add(PaperTime.Text.ContextMenuExit, (s, e) => { this.Close(); });
             LoadFiles(fileNames);
         }
 
-        void BalloonTipClicked(object sender, EventArgs e)
+        void OpenReportClick(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(lastFileName))
             {
