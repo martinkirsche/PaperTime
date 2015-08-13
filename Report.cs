@@ -1,6 +1,6 @@
-﻿using System;
+﻿using PaperTime.Data;
+using System;
 using System.Collections.Generic;
-using PaperTime.Data;
 
 namespace PaperTime
 {
