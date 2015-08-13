@@ -39,9 +39,23 @@ namespace PaperTime
         static TimeSpan timePerDay = TimeSpan.FromHours(8.0);
         static Func<Record, bool> filter = r => true;
 
+        static Assembly AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = assembly.GetManifestResourceNames().FirstOrDefault(n => n.EndsWith(new AssemblyName(args.Name).Name + ".dll"));
+            if (string.IsNullOrEmpty(resourceName)) { return null; }
+            using (var stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                var assemblyData = new Byte[stream.Length];
+                stream.Read(assemblyData, 0, assemblyData.Length);
+                return Assembly.Load(assemblyData);
+            }
+        }
+
         [STAThread]
         static void Main(string[] args)
         {
+            AppDomain.CurrentDomain.AssemblyResolve += AssemblyResolve;
             bool addDefaultWorkdays = true;
             var p = new OptionSet()
             {
