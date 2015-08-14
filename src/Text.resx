@@ -238,7 +238,7 @@ A pretty report will be rendered after you saved the file.
   </data>
   <data name="ReportTargetTimeEntry" xml:space="preserve">
     <value>Target Work Time
-: {2:0.00} h (= {0} Tage * {1:0.##} h)</value>
+: {2:0.00} h (= {0} days * {1:0.##} h)</value>
   </data>
   <data name="ReportWorkdaysDescription1" xml:space="preserve">
     <value>**{1}** work days {0}</value>

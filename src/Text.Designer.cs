@@ -358,7 +358,7 @@ namespace PaperTime {
         
         /// <summary>
         ///   Looks up a localized string similar to Target Work Time
-        ///: {2:0.00} h (= {0} Tage * {1:0.##} h).
+        ///: {2:0.00} h (= {0} days * {1:0.##} h).
         /// </summary>
         internal static string ReportTargetTimeEntry {
             get {
