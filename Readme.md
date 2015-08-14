@@ -10,7 +10,7 @@ It's a simple and flexible solution – the file format is human readable and yo
 Syntax
 ------
 
-The parser is looking for lines that starts with a time stamp. The time stamp must be followed by a category that can be split up using slashes (e.g. `1:33 PM 8/12/2015	Company/Project`). The next line that starts with a time stamp is the end time of that entry and can be the start time of the next entry (if a category was provided). Time that should not be tracked must be marked by a line that contains at least three dashes (e.g. `---`).
+The parser is looking for lines that starts with a time stamp. The time stamp must be followed by a `tab` charectar and a category that can be split up using slashes (e.g. `1:33 PM 8/12/2015	Company/Project`). The next line that starts with a time stamp is the end time of that entry and can be the start time of the next entry (if a category was provided). Time that should not be tracked must be marked by a line that contains at least three dashes (e.g. `---`).
 
 ### Example
 
