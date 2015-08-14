@@ -5,6 +5,8 @@ Paper Time is a simple MarkDown inspired syntax to track time using text files a
 
 It's a simple and flexible solution – the file format is human readable and you could basically use any kind of editor (or even a sheet of paper) to track time.
 
+![Screenshot](Screenshot.gif)
+
 Syntax
 ------
 
