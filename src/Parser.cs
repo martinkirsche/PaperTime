@@ -52,11 +52,11 @@ namespace PaperTime
                 }
 
                 string[] parts =
-                    line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                    line.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries);
 
                 DateTime date = DateTime.MinValue;
 
-                if (parts.Length < 2 || !DateTime.TryParse(parts[0] + " " + parts[1], out date))
+                if (parts.Length < 1 || !DateTime.TryParse(parts[0], out date))
                 {
                     if (current != null) { current.Message.Add(line); }
                     continue;
@@ -64,9 +64,9 @@ namespace PaperTime
 
                 Record newRecord = new Record() { Begin = date };
 
-                if (parts.Length >= 3)
+                if (parts.Length >= 2)
                 {
-                    newRecord.Category = parts[2];
+                    newRecord.Category = parts[1];
                     var m = multiplyer.Find(x => newRecord.Category.Contains(x.CategoryFilter));
                     newRecord.Multiplier = null == m ? 1.0 : m.Value;                    
                 }
